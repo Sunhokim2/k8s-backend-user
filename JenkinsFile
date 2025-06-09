@@ -25,6 +25,7 @@ pipeline {
         booleanParam defaultValue: false, description: '', name: 'RELEASE'
     }
 
+// 이부분이 아주중요하다고 할수있다. 실제 도커허브에서 쓰는 nickname인 firendermen을 DOCKER_REGISTRY로 한다.
     environment {
         GIT_URL = "https://github.com/Sunhokim2/k8s-backend-user.git"
         GITHUB_CREDENTIAL = "github-token"
