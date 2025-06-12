@@ -20,12 +20,19 @@ public class SiteUserService {
 
     @Transactional
     public void registerUser(SiteUserRegisterDto registerDto) {
-        SiteUser siteUser = registerDto.toEntity();
-        siteUserRepository.save(siteUser);
+        try {
+            SiteUser siteUser = registerDto.toEntity();
+            SiteUser savedUser = siteUserRepository.save(siteUser); // DB 저장
 
-        SiteUserInfoEvent event = SiteUserInfoEvent.fromEntity("Create", siteUser);
+            // Kafka 메시지 전송 (DB 저장 성공 후에만)
+            kafkaMessageProducer.send(SiteUserInfoEvent.Topic, registerDto);
 
-        kafkaMessageProducer.send(SiteUserInfoEvent.Topic, event);
+            
+        } catch (Exception e) {
+            // 어떤 예외가 발생하는지 여기서 확인 가능
+            log.error("사용자 등록 중 예외 발생: {}", e.getMessage(), e);
+            throw e; // 예외를 다시 던져서 500 에러로 이어지게 함
+        }
     }
 
 }
