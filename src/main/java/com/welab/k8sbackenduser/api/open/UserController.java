@@ -1,8 +1,9 @@
 package com.welab.k8sbackenduser.api.open;
 
-import com.welab.projectmodule.common.dto.ApiResponseDto;
+//import com.welab.projectmodule.common.dto.ApiResponseDto;
 
 
+import com.welab.k8sbackenduser.common.dto.ApiResponseDto;
 import com.welab.k8sbackenduser.remote.alim.RemoteAlimService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

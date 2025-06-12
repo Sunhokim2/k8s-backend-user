@@ -17,10 +17,12 @@ public class SiteUser {
     @Getter
     @Setter
     private Long id;
+
     @Column(name = "user_id", unique = true, nullable = false)
     @Getter
     @Setter
     private String userId;
+
     @Column(name = "password", nullable = false)
     @Getter
     @Setter
@@ -30,6 +32,7 @@ public class SiteUser {
     @Setter
     @Getter
     private String phoneNumber;
+
     @Column(name = "deleted", nullable = false)
     @Getter
     @Setter

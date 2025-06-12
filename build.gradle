@@ -4,19 +4,19 @@ plugins {
     id 'io.spring.dependency-management' version '1.1.7'
 }
 
-repositories {
-    mavenCentral()
-    // mavenLocal() // 로컬 개발 시 필요하면 유지, CI/CD에서는 필수는 아님
-
-    // ★★★ Nexus Public Group Repository 추가 ★★★
-    maven {
-        name = "nexus" // 저장소 이름 (원하는 대로 지정)
-        url = uri("http://localhost:8081/repository/maven-public/") // Nexus Public Group Repository URL
-        allowInsecureProtocol = true
-        // 익명 접근을 허용했다면 credentials는 필요 없습니다.
-        // 만약 익명 접근을 비활성화했다면 여기에 credentials를 추가해야 합니다.
-    }
-}
+//repositories {
+//    mavenCentral()
+//    // mavenLocal() // 로컬 개발 시 필요하면 유지, CI/CD에서는 필수는 아님
+//
+//    // ★★★ Nexus Public Group Repository 추가 ★★★
+//    maven {
+//        name = "nexus" // 저장소 이름 (원하는 대로 지정)
+//        url = uri("http://localhost:8081/repository/maven-public/") // Nexus Public Group Repository URL
+//        allowInsecureProtocol = true
+//        // 익명 접근을 허용했다면 credentials는 필요 없습니다.
+//        // 만약 익명 접근을 비활성화했다면 여기에 credentials를 추가해야 합니다.
+//    }
+//}
 
 group = 'com.welab'
 version = '0.0.3'
@@ -52,7 +52,7 @@ dependencies {
     runtimeOnly 'com.mysql:mysql-connector-j:8.4.0'
 
 
-    implementation 'com.welab:projectModule:1.0.0'
+//    implementation 'com.welab:projectModule:1.0.0'
 }
 
 tasks.named('test') {
