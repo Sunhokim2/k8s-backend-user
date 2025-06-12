@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class UserController {
     private final RemoteAlimService remoteAlimService;
-    private final SiteUserService siteUserService;
 
     @GetMapping(value = "/test")
     public ApiResponseDto<String> test() {
@@ -33,10 +32,5 @@ public class UserController {
         return ApiResponseDto.createOk(userResponse);
     }
 
-//    회원가입하고 이벤트 보내는 코드
-    @PostMapping(value = "/register")
-    public ApiResponseDto<String> register(@RequestBody @Valid SiteUserRegisterDto registerDto) {
-        siteUserService.registerUser(registerDto);
-        return ApiResponseDto.defaultOk();
-    }
+
 }
