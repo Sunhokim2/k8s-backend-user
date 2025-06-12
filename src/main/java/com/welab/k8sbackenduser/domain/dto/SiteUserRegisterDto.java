@@ -17,6 +17,10 @@ public class SiteUserRegisterDto {
     @NotBlank(message = "전화번호를 입력하세요")
     private String phoneNumber;
 
+    // 기본 생성자 추가 (선택적이지만 권장)
+    public SiteUserRegisterDto() {
+    }
+
     public SiteUser toEntity(){
         SiteUser siteUser = new SiteUser();
 
