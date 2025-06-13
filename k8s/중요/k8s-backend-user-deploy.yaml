@@ -21,9 +21,14 @@ spec:
             value: dev
         ports:
         - containerPort: 8080
+
         volumeMounts:
           - mountPath: /etc/config
             name: backend-user-config-volume
+            readOnly: true
+          - mountPath: /etc/secret
+            name: backend-user-secret-volume
+            readOnly: true
       volumes:
         - name: backend-user-config-volume
           configMap:
@@ -31,3 +36,9 @@ spec:
             items:
               - key: application-dev.yml
                 path: application-dev.yml
+        - name: backend-user-secret-volume
+          secret:
+            secretName: backend-user-secret
+            items:
+              - key: application-secret.yml
+                path: application-secret.yml
