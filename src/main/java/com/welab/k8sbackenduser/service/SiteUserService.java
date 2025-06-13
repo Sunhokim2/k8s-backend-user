@@ -27,7 +27,7 @@ public class SiteUserService {
             // Kafka 메시지 전송 (DB 저장 성공 후에만)
             kafkaMessageProducer.send(SiteUserInfoEvent.Topic, registerDto);
 
-            
+
         } catch (Exception e) {
             // 어떤 예외가 발생하는지 여기서 확인 가능
             log.error("사용자 등록 중 예외 발생: {}", e.getMessage(), e);

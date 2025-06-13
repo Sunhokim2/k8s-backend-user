@@ -21,3 +21,13 @@ spec:
             value: dev
         ports:
         - containerPort: 8080
+        volumeMounts:
+          - mountPath: /etc/config
+            name: backend-user-config-volume
+      volumes:
+        - name: backend-user-config-volume
+          configMap:
+            name: backend-user-config
+            items:
+              - key: application-dev.yml
+                path: application-dev.yml
