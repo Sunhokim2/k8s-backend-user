@@ -19,7 +19,7 @@ repositories {
 }
 
 group = 'com.welab'
-version = '0.0.5'
+version = '0.0.6'
 
 java {
     toolchain {
@@ -34,7 +34,6 @@ configurations {
 }
 
 
-
 ext {
     set('springCloudVersion', "2025.0.0")
     springCloudVersion = "2025.0.0"
@@ -47,6 +46,11 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+//    로그인 jwt
+    implementation 'io.jsonwebtoken:jjwt-api:0.12.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-gson:0.12.5'
 
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     runtimeOnly 'com.mysql:mysql-connector-j:8.4.0'

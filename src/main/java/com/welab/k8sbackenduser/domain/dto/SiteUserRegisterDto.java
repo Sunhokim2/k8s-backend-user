@@ -1,6 +1,7 @@
 package com.welab.k8sbackenduser.domain.dto;
 
 import com.welab.k8sbackenduser.domain.SiteUser;
+import com.welab.k8sbackenduser.secret.hash.SecureHashUtils;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,7 +26,7 @@ public class SiteUserRegisterDto {
         SiteUser siteUser = new SiteUser();
 
         siteUser.setUserId(this.userId);
-        siteUser.setPassword(this.password);
+        siteUser.setPassword(SecureHashUtils.hash(this.password));
         siteUser.setPhoneNumber(this.phoneNumber);
 
         return siteUser;
