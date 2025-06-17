@@ -39,8 +39,9 @@ public class UserAuthController {
     }
 
     //  블루그린배포용 실습
+    //  카나리배포용 실습
     @GetMapping(value = "/test")
     public ApiResponseDto<String> test() {
-        return ApiResponseDto.createOk("버전 2입니다.");
+        return ApiResponseDto.createOk("카나리 버전입니다.");
     }
 }
